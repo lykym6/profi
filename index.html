@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Артём Елчев — веб-разработчик. Сайты для бизнеса: мобильные страницы, сайты-визитки, каталоги и сайты по шаблону." />
+  <meta name="theme-color" content="#241018" />
+  <title>Артём Елчев — веб-разработчик</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('site-loading');
+      window.setTimeout(() => document.documentElement.classList.remove('site-loading'), 2200);
+    }
+  </script>
+</head>
+<body>
+  <div class="site-loader" role="status" aria-label="Загружается портфолио">
+    <div class="site-loader__content">
+      <span class="site-loader__label">ВЕБ-РАЗРАБОТКА</span>
+      <p class="site-loader__word">Портфолио<span>.</span></p>
+      <span class="site-loader__rule" aria-hidden="true"></span>
+    </div>
+  </div>
+  <header class="site-header" id="top">
+    <span class="site-label">ВЕБ-РАЗРАБОТКА</span>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="#portfolio">Работы</a><a href="#about">Обо мне</a><a href="#services">Услуги</a>
+    </nav>
+    <a class="header-link" href="#contact">Обсудить проект <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильная навигация" hidden>
+    <a href="#portfolio">Работы <span>01</span></a>
+    <a href="#about">Обо мне <span>02</span></a>
+    <a href="#services">Услуги и цены <span>03</span></a>
+    <a href="#contact">Обсудить проект <span>04</span></a>
+    <a class="mobile-email" href="mailto:artm.yelchev@bk.ru">Написать на почту</a>
+  </nav>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-art" aria-hidden="true">
+          <span class="hero-orbit"></span>
+        </div>
+        <img class="hero-portrait" src="assets/hero-portrait.png" alt="" fetchpriority="high" />
+        <p class="hero-overline">ВЕБ-РАЗРАБОТКА <span>·</span> ДИЗАЙН И КОД</p>
+        <h1 id="hero-title" class="hero-title"><span>САЙТЫ</span><em>для вашего бизнеса.</em></h1>
+        <div class="hero-copy">
+          <p class="hero-role">От идеи до публикации</p>
+          <p class="hero-description">Разрабатываю сайты и каталоги: продумываю структуру, собираю интерфейс и помогаю с запуском.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">Давайте обсудим <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a>
+            <a class="button button-text" href="#portfolio">Смотреть работы <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <span class="hero-side-note" aria-hidden="true">ПОРТФОЛИО<br />ВЕБ-РАЗРАБОТЧИКА</span>
+        <a class="hero-scroll" href="#portfolio" aria-label="Перейти к портфолио"><span>ЛИСТАЙТЕ ВНИЗ</span><i aria-hidden="true"></i></a>
+      </div>
+    </section>
+
+    <section class="portfolio section" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="section-intro reveal">
+        <div><p class="eyebrow">01 / ПОРТФОЛИО</p><h2 id="portfolio-title">Избранные<br><em>работы.</em></h2></div>
+        <p class="intro-note">Каждый проект начинается с задачи: упростить путь к товару, услуге или заявке.</p>
+      </div>
+
+      <article class="feature-case reveal">
+        <div class="case-copy">
+          <p class="case-index">КЕЙС 01 <span>·</span> КАТАЛОГ ТОВАРОВ</p>
+          <h3>Global<span>74</span></h3>
+          <p class="case-summary">Задача — превратить старый интернет-магазин в удобный каталог. Пересобрал подачу и структуру, чтобы ассортимент было проще просматривать и находить.</p>
+          <a class="case-link" href="https://74-global.ru" target="_blank" rel="noopener noreferrer">Открыть 74-global.ru <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a>
+        </div>
+        <div class="case-showcase" aria-label="Каталог Global74 до и после обновления">
+          <figure class="site-shot shot-old"><a href="https://74-global.ru/" target="_blank" rel="noopener noreferrer" aria-label="Открыть сайт 74-global.ru"><img src="Портфолио/74-global.ru_.png" alt="Старая версия каталога Global74" loading="lazy" /></a><figcaption><span>ДО</span><span>Старая версия</span></figcaption></figure>
+          <figure class="site-shot shot-new"><a href="https://74-global.ru/" target="_blank" rel="noopener noreferrer" aria-label="Открыть сайт 74-global.ru"><img src="Портфолио/new.74-global.ru_ (2).png" alt="Обновлённый каталог Global74 с разделами и карточками товаров" loading="lazy" /></a><figcaption><span>ПОСЛЕ</span><span>Новый каталог</span></figcaption></figure>
+        </div>
+        <div class="case-foot"><span>КАТАЛОГ ТОВАРОВ</span><span>ДИЗАЙН И РАЗРАБОТКА</span><span>АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ</span></div>
+      </article>
+
+      <div class="project-grid">
+        <article class="project-card project-corporate reveal">
+          <div class="project-intro"><p class="project-category">03 / ПОРТФОЛИО</p><h3>Другие<br><em>проекты</em></h3><p>Сайты для разных задач бизнеса: корпоративный каталог, сайт клиники и страница студии.</p></div>
+          <figure class="project-visual"><a class="project-image-link" href="https://74-global.ru/" target="_blank" rel="noopener noreferrer" aria-label="Открыть сайт Global74"><img src="assets/project-global-hq.jpg" alt="Главная страница сайта Global74" loading="lazy" /></a></figure>
+          <div class="project-caption"><span class="project-category">01 / КОРПОРАТИВНЫЙ САЙТ</span><h3>Global<span>74</span></h3><p>Сайт промышленной компании с каталогом продукции и формой обратной связи.</p><a class="project-action" href="#contact" aria-label="Обсудить похожий проект"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg></a></div>
+        </article>
+        <article class="project-card project-dental reveal">
+          <div class="project-caption"><span class="project-category">02 / САЙТ СТОМАТОЛОГИИ</span><h3>AVRA <em>Dental</em></h3><p>Сайт клиники с описанием услуг и формой записи.</p><a class="project-action" href="#contact" aria-label="Обсудить похожий проект"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg></a></div>
+          <figure class="project-visual"><img src="assets/project-avra-hq.jpg" alt="Главная страница сайта стоматологии AVRA Dental" loading="lazy" /></figure>
+        </article>
+        <article class="project-card project-detail reveal">
+          <figure class="project-visual"><img src="assets/project-blackdetail-hq.jpg" alt="Главная страница сайта студии детейлинга Blackdetail" loading="lazy" /></figure>
+          <div class="project-caption"><span class="project-category">03 / СТУДИЯ ДЕТЕЙЛИНГА</span><h3>Black<span>detail</span></h3><p>Сайт студии с презентацией услуг и возможностью записи.</p><a class="project-action" href="#contact" aria-label="Обсудить похожий проект"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg></a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="about-image reveal"><img src="assets/about-night-portrait.png" alt="Артём у автомобиля вечером" loading="lazy" /><span class="image-caption">НЕМНОГО ОБО МНЕ</span></div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">02 / ОБО МНЕ</p>
+        <h2 id="about-title">Привет,<br /><em>я Артём.</em></h2>
+        <p class="about-lead">Я веб-разработчик. Делаю понятные и удобные сайты для бизнеса.</p>
+        <p class="about-detail">Сначала разбираюсь в задаче и собираю структуру будущего сайта. Затем разрабатываю нужный формат — от мобильной страницы до каталога — и, если нужно, помогаю опубликовать его на хостинге.</p>
+      </div>
+      <div class="about-side-note" aria-hidden="true">ДУМАЮ О ЗАДАЧЕ<br>И О ТОМ, КАК ЕЁ ПОКАЗАТЬ</div>
+    </section>
+
+    <section class="services section" id="services" aria-labelledby="services-title">
+      <div class="services-heading reveal"><div><p class="eyebrow">03 / УСЛУГИ И СТОИМОСТЬ</p><h2 id="services-title">Выбираем<br><em>формат.</em></h2></div><p>Выберите вариант — в форме уже будет указана нужная услуга. Стоимость начинается с цены «от».</p></div>
+      <div class="price-list">
+        <a class="price-row reveal" href="#contact" data-service="mobile" aria-describedby="service-mobile-description"><span class="price-num">01</span><span class="price-name"><strong>Taplink — мобильный сайт-визитка</strong><span>Компактная страница для телефона</span><span class="price-description" id="service-mobile-description">Расскажет о вас и услугах в удобном мобильном формате — хороший выбор, когда важно запуститься быстро и уложиться в ограниченный бюджет.</span></span><span class="price-value">от 5 000 ₽</span><svg class="price-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a>
+        <a class="price-row reveal" href="#contact" data-service="template" aria-describedby="service-template-description"><span class="price-num">02</span><span class="price-name"><strong>Одностраничный сайт по шаблону</strong><span>Настроенная под ваш бизнес готовая основа</span><span class="price-description" id="service-template-description">Подойдёт, если бизнесу важно сократить сроки и бюджет. Подберём основу и адаптируем её под вашу задачу и материалы.</span></span><span class="price-value">от 10 000 ₽</span><svg class="price-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a>
+        <a class="price-row reveal" href="#contact" data-service="landing" aria-describedby="service-landing-description"><span class="price-num">03</span><span class="price-name"><strong>Одностраничный сайт</strong><span>Цельная презентация с понятным действием</span><span class="price-description" id="service-landing-description">Собирает важную информацию на одной странице и ведёт посетителя к следующему шагу. Подходит для бренда, продукта, услуги, проекта или события.</span></span><span class="price-value">от 20 000 ₽</span><svg class="price-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a>
+        <a class="price-row reveal" href="#contact" data-service="catalog" aria-describedby="service-catalog-description"><span class="price-num">04</span><span class="price-name"><strong>Многостраничный сайт или каталог</strong><span>Связанные разделы и гибкая структура</span><span class="price-description" id="service-catalog-description">Для проекта с большим портфолио, несколькими направлениями или широким ассортиментом: страницы объединяются меню и внутренними ссылками.</span></span><span class="price-value">от 40 000 ₽</span><svg class="price-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a>
+      </div>
+      <p class="launch-note reveal"><span>+</span> Помогу опубликовать сайт и пройти путь до запуска.</p>
+      <p class="legal-service-note reveal">При разработке учитываю требования законодательства о защите прав потребителей и закладываю нужные блоки с информацией об исполнителе, товарах, услугах и условиях. Состав и точность исходных сведений согласуем с владельцем бизнеса.</p>
+    </section>
+
+    <section class="ticker" aria-label="Этапы работы">
+      <div class="ticker-viewport" role="group" tabindex="0" aria-label="Структура, дизайн, разработка, публикация. Наведение курсора или фокус остановит строку."><div class="ticker-track" aria-hidden="true">
+        <div class="ticker-run"><span>СТРУКТУРА</span><i>✳</i><span>ДИЗАЙН</span><i>✳</i><span>РАЗРАБОТКА</span><i>✳</i><span>ПУБЛИКАЦИЯ</span><i>✳</i></div>
+        <div class="ticker-run"><span>СТРУКТУРА</span><i>✳</i><span>ДИЗАЙН</span><i>✳</i><span>РАЗРАБОТКА</span><i>✳</i><span>ПУБЛИКАЦИЯ</span><i>✳</i></div>
+      </div></div>
+    </section>
+
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-heading reveal"><p class="eyebrow">04 / ОБСУДИМ ЗАДАЧУ</p><h2 id="contact-title">Давайте<br><em>обсудим проект.</em></h2><p>Расскажите, какой сайт нужен. Я отвечу по указанному контакту и помогу сориентироваться по формату.</p><div class="contact-links"><a class="contact-direct" href="https://t.me/lykym6" target="_blank" rel="noopener noreferrer">Написать в Telegram <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a><a class="contact-email" href="mailto:artm.yelchev@bk.ru">artm.yelchev@bk.ru</a></div></div>
+      <form class="contact-form reveal" id="contact-form" accept-charset="UTF-8">
+        <label class="field"><span>Как к вам обращаться?</span><input name="name" autocomplete="name" required maxlength="100" placeholder="Имя" /></label>
+        <label class="field"><span>Контакт для ответа</span><input name="reply" autocomplete="off" required maxlength="160" placeholder="Почта, Telegram или телефон" /></label>
+        <label class="field"><span>Формат сайта</span><select name="service" id="service-select"><option value="">Пока не выбрал</option><option value="mobile">Taplink — мобильный сайт-визитка</option><option value="template">Одностраничный сайт по шаблону</option><option value="landing">Одностраничный сайт</option><option value="catalog">Многостраничный сайт или каталог</option></select></label>
+        <label class="field"><span>Куда подготовить сообщение?</span><select name="channel" id="channel-select" required><option value="">Выберите способ</option><option value="email">В почтовое приложение</option><option value="telegram">В Telegram</option></select></label>
+        <label class="field"><span>Коротко о задаче</span><textarea name="message" rows="3" required maxlength="2000" placeholder="Что важно учесть в проекте?"></textarea></label>
+        <label class="consent"><input type="checkbox" name="consent" value="yes" required /><span>Даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку данных</a> и ознакомлен(а) с <a href="privacy-policy.html" target="_blank" rel="noopener">политикой</a>.</span></label>
+        <button class="submit-button" type="submit"><span>Продолжить к отправке</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite">Откроется черновик сообщения. Проверьте его и отправьте вручную в почте или Telegram.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main"><span class="footer-mark">ВЕБ-РАЗРАБОТКА</span><p>Сайт начинается с понятной задачи.</p><a class="footer-cta" href="#contact">Обсудить проект <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" /></svg></a></div>
+    <div class="footer-bottom"><span>© 2026</span><a href="mailto:artm.yelchev@bk.ru">ARTM.YELCHEV@BK.RU</a><a href="privacy-policy.html">ПОЛИТИКА ДАННЫХ</a><a href="consent.html">СОГЛАСИЕ</a></div>
+  </footer>
+  <aside class="cookie-notice" id="cookie-notice" hidden aria-label="Уведомление о cookie">
+    <p>Для запоминания закрытия уведомления сайт сохраняет одну техническую cookie на 180 дней. Аналитические и рекламные cookie не используются.</p>
+    <a href="privacy-policy.html">Подробнее</a>
+    <button type="button" id="cookie-accept">Понятно</button>
+  </aside>
+  <script src="script.js" defer></script>
+</body>
+</html>
