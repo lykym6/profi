@@ -1,2 +1,10 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# VS Code
+.vscode/
+
+# Project notes
 /Заметки по проекту.md
 /Отчет о проекте портфолио.md
