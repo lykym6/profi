@@ -297,7 +297,7 @@ body{overflow-x:clip;max-width:100%}
   .site-footer{padding:38px var(--gutter) 26px}
   .footer-main{display:grid;grid-template-columns:1fr;gap:14px;padding-bottom:28px;align-items:start}
   .footer-mark,.footer-main>p,.footer-cta{grid-column:auto;grid-row:auto}
-  .footer-main>p{justify-self:start;text-align:left;white-space:normal;font-size:clamp(22px,6.4vw,28px);line-height:1.2}
+  .footer-main>p{justify-self:start;text-align:left;white-space:normal;font-size:clamp(22px,6.vw,28px);line-height:1.2}
   .footer-cta{justify-self:stretch;max-width:none;justify-content:space-between;margin-top:6px;padding:15px 20px;border:1px solid rgba(215,170,162,.35);border-radius:999px;font-size:13px!important;line-height:1;text-align:left;transition:border-color .3s,background .3s}
   .footer-cta:hover{border-color:var(--rose);background:rgba(215,170,162,.08)}
   .footer-bottom{display:grid;grid-template-columns:auto auto;justify-content:space-between;gap:16px 12px;padding-top:20px}
