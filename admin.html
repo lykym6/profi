@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Админка сайта</title>
+<link rel="stylesheet" href="fonts.css"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="work.css">
+<style>
+body{background:var(--wine-deep,#241018);color:var(--cream,#f4ece2);font-family:Onest,sans-serif;margin:0;padding:32px var(--gutter,24px) 80px}
+.wrap{max-width:1100px;margin:auto;display:grid;gap:28px}
+h1{font:600 clamp(26px,4vw,44px)/1.1 "Noto Serif Display",sans-serif;margin:0}h2{font:500 18px "Noto Serif Display",sans-serif;margin:0 0 16px}
+.box{border:1px solid rgba(244,236,226,.2);border-radius:18px;padding:24px;background:rgba(244,236,226,.04)}
+label{display:grid;gap:6px;font-size:13px;color:rgba(244,236,226,.75);margin-bottom:14px}
+input,select,textarea{font:inherit;font-size:15px;color:#f4ece2;background:rgba(0,0,0,.25);border:1px solid rgba(244,236,226,.25);border-radius:10px;padding:12px}
+textarea{min-height:90px;resize:vertical}
+button{font:600 14px Onest,sans-serif;border:0;border-radius:99px;padding:13px 22px;cursor:pointer;background:#f4ece2;color:#241018}button.s{background:transparent;color:#f4ece2;border:1px solid rgba(244,236,226,.35)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.item{display:grid;grid-template-columns:70px 1fr auto;gap:14px;align-items:center;padding:10px 0;border-top:1px solid rgba(244,236,226,.12)}
+.item img{width:70px;height:46px;object-fit:cover;border-radius:8px}.item div:last-child{display:flex;gap:6px}
+#msg{min-height:22px;font-size:14px}.ok{color:#9be3a8}.err{color:#ff9d9d}
+.wrap>*,.row>*,.two>*{min-width:0}input,select,textarea{width:100%;box-sizing:border-box}.hint{font-size:13px;line-height:1.6;color:rgba(244,236,226,.65)}
+.tabs2{display:flex;gap:8px;flex-wrap:wrap}.tabs2 button{background:transparent;color:#f4ece2;border:1px solid rgba(244,236,226,.35)}.tabs2 button.on{background:#f4ece2;color:#241018}
+.chk{display:flex;align-items:center;gap:10px;font-size:14px;margin-bottom:14px}.chk input{width:auto}
+ol.steps{margin:0 0 16px;padding-left:20px;line-height:1.8;font-size:14px;color:rgba(244,236,226,.85)}ol.steps a{color:#d7aaa2}
+.item.off{opacity:.5}.item .btns{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.srv{border:1px solid rgba(244,236,226,.18);border-radius:14px;padding:16px;margin-bottom:14px;background:rgba(0,0,0,.12)}.srv.off{opacity:.55}
+.srv .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}.srv label{margin-bottom:10px}
+.sw{display:flex;align-items:center;gap:8px;font-size:14px;margin:0}.sw input{width:20px;height:20px}
+@media(max-width:800px){.two,.row{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap">
+<h1>Админка сайта</h1>
+<section class="box"><h2>Вход</h2>
+<p class="hint">Пароля здесь нет: сайт лежит на GitHub, поэтому вход делается «ключом» (токеном). Он создаётся один раз.</p>
+<ol class="steps"><li>Откройте <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">создание токена на GitHub</a> (нужно быть залогиненным в свой аккаунт).</li>
+<li>Название любое, срок «No expiration» или год. В «Repository access» выберите «Only select repositories» и ваш репозиторий сайта.</li>
+<li>В «Permissions → Repository permissions» найдите <b>Contents</b> и поставьте <b>Read and write</b>. Нажмите «Generate token» и скопируйте длинный код (он показывается один раз).</li>
+<li>Вставьте код в поле ниже, поставьте галочку «Запомнить» и нажмите «Войти».</li></ol>
+<div class="row"><label>Репозиторий (пользователь/название)<input id="repo" value="lykym6/profi"></label><label>Ветка<input id="branch" value="main"></label></div>
+<label>Токен GitHub<input id="token" type="password" autocomplete="off" placeholder="github_pat_..."></label>
+<label class="chk"><input type="checkbox" id="remember"> Запомнить токен на этом устройстве (не ставьте на чужих компьютерах)</label>
+<button id="connect" type="button">Войти</button><p id="msg"></p></section>
+<div class="tabs2"><button type="button" class="on" data-t="w">Работы</button><button type="button" data-t="s">Услуги и цены</button></div>
+<div id="tw"><div class="two">
+<section class="box"><h2 id="ftitle">Новая работа</h2><form id="f">
+<div class="row"><label>Тип<select id="type"><option>Работа</option><option>Концепт</option></select></label><label>Категория<input id="cat" placeholder="Например: Интернет-магазин" required></label></div>
+<label>Название<input id="title" required maxlength="60"></label>
+<label>Описание (1–2 предложения)<textarea id="text" required maxlength="220"></textarea></label>
+<label>Ссылка на сайт (для концепта оставьте пустой)<input id="link" type="url" placeholder="https://"></label>
+<label>Скриншот первого экрана сайта (лучше 16:9)<input id="img" type="file" accept="image/*" required></label>
+<button type="submit" id="fsub">Опубликовать</button> <button type="button" class="s" id="fcancel" hidden>Отменить правку</button></form></section>
+<section class="box"><h2>Предпросмотр</h2><div id="pv" class="works" style="max-width:460px;padding:24px;border-radius:16px;border:0"></div></section></div>
+<section class="box" style="margin-top:28px"><h2>Работы на сайте</h2><div id="list" class="hint">Войдите, чтобы увидеть список.</div></section></div>
+<div id="ts" hidden><section class="box"><h2>Услуги и цены</h2>
+<p class="hint">Снимите галочку «Показывать» — услуга пропадёт с сайта и из формы заявки, но останется здесь. Цену пишите как хотите: «от 5 000 ₽», «15 000 ₽», «по запросу».</p>
+<div id="slist">Войдите, чтобы увидеть услуги.</div>
+<button type="button" class="s" id="sadd">+ Добавить услугу</button> <button type="button" id="ssave">Сохранить на сайт</button></section></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const say=(t,ok)=>{$('msg').textContent=t;$('msg').className=ok?'ok':'err'};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const b64=s=>btoa(unescape(encodeURIComponent(s)));
+const F={works:{path:'works.json',sha:'',data:[]},services:{path:'services.json',sha:'',data:[]}};
+let editId=null;
+$('token').value=localStorage.getItem('gt')||sessionStorage.getItem('gt')||'';$('remember').checked=!!localStorage.getItem('gt');
+async function api(path,opt={}){const r=await fetch(`https://api.github.com/repos/${$('repo').value.trim()}/contents/${path}`+(opt.method?'':`?ref=${$('branch').value.trim()}&t=${Date.now()}`),{...opt,headers:{Authorization:'Bearer '+$('token').value.trim(),Accept:'application/vnd.github+json'}});if(!r.ok)throw new Error(r.status===401?'Токен не подходит: проверьте, что скопировали его целиком':r.status===403?'Нет прав: у токена должно быть Contents: Read and write':r.status===404?'Не найдено: проверьте репозиторий, ветку и доступ токена к репозиторию':r.status===409||r.status===422?'Файл изменился на GitHub. Нажмите «Войти» ещё раз и повторите':'Ошибка GitHub '+r.status);return r.json()}
+async function loadFile(k){const f=F[k];const j=await api(f.path);f.sha=j.sha;const o=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,'')))));f.data=o[k]||[]}
+async function saveFile(k,msg){const f=F[k];const r=await api(f.path,{method:'PUT',body:JSON.stringify({message:msg,content:b64(JSON.stringify({[k]:f.data},null,1)),sha:f.sha||undefined,branch:$('branch').value.trim()})});f.sha=r.content.sha}
+const done='Сохранено. Сайт обновится примерно через минуту (обновите страницу с Ctrl+Shift+R).';
+/* ---------- вкладки ---------- */
+document.querySelectorAll('.tabs2 button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs2 button').forEach(x=>x.classList.toggle('on',x===b));$('tw').hidden=b.dataset.t!=='w';$('ts').hidden=b.dataset.t!=='s'});
+/* ---------- вход ---------- */
+$('connect').onclick=async()=>{try{const t=$('token').value.trim();sessionStorage.setItem('gt',t);if($('remember').checked)localStorage.setItem('gt',t);else localStorage.removeItem('gt');say('Подключаюсь…',1);await loadFile('works');try{await loadFile('services')}catch(e){F.services.data=[];F.services.sha=''}drawW();drawS();say('Готово, вы вошли. Работ: '+F.works.data.length+', услуг: '+F.services.data.length,1)}catch(x){say(x.message)}};
+/* ---------- работы ---------- */
+const W=()=>F.works.data;
+function drawW(){$('list').innerHTML=W().map((w,i)=>`<div class="item ${w.visible===false?'off':''}"><img src="${esc(w.image)}" alt=""><div><b>${esc(w.title)}</b><div class="hint">${esc(w.type)} · ${esc(w.category)}${w.visible===false?' · скрыта':''}</div></div><div class="btns"><button class="s" data-a="vis" data-i="${i}">${w.visible===false?'Показать':'Скрыть'}</button><button class="s" data-a="edit" data-i="${i}">Изменить</button><button class="s" data-a="up" data-i="${i}">↑</button><button class="s" data-a="down" data-i="${i}">↓</button><button class="s" data-a="del" data-i="${i}">Удалить</button></div></div>`).join('')||'Пока пусто'}
+$('list').onclick=async e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i,a=b.dataset.a,w=W();if(a==='del'&&!confirm('Удалить работу с сайта?'))return;
+if(a==='edit'){editId=w[i].id;$('type').value=w[i].type;$('cat').value=w[i].category;$('title').value=w[i].title;$('text').value=w[i].text;$('link').value=w[i].link||'';$('img').required=false;$('ftitle').textContent='Правка: '+w[i].title;$('fsub').textContent='Сохранить правку';$('fcancel').hidden=false;pv(w[i].image);scrollTo({top:0,behavior:'smooth'});return}
+try{if(a==='del')w.splice(i,1);else if(a==='vis')w[i].visible=w[i].visible===false;else{const j=a==='up'?i-1:i+1;if(j<0||j>=w.length)return;[w[i],w[j]]=[w[j],w[i]]}await saveFile('works','Изменён список работ');drawW();say(done,1)}catch(x){say(x.message)}};
+function resetForm(){editId=null;$('f').reset();$('img').required=true;$('ftitle').textContent='Новая работа';$('fsub').textContent='Опубликовать';$('fcancel').hidden=true;pv()}
+$('fcancel').onclick=resetForm;
+function pv(old){const f=$('img').files[0];const src=f?URL.createObjectURL(f):(typeof old==='string'?old:'');const l=$('link').value.trim();let d='концепт';try{if(/^https?:/.test(l))d=new URL(l).hostname}catch(e){}$('pv').innerHTML=`<article class="card"><div class="chrome"><i></i><i></i><i></i><span>${esc(d)}</span></div><div class="shot"><img src="${src}" alt=""></div><div class="t"><small>${esc(($('type').value+' · '+$('cat').value).toUpperCase())}</small><h3>${esc($('title').value||'Название работы')}</h3><p class="d">${esc($('text').value||'Короткое описание работы.')}</p></div></article>`}
+['type','cat','title','text','link','img'].forEach(i=>$(i).addEventListener('input',()=>pv(editId?(W().find(w=>w.id===editId)||{}).image:undefined)));pv();
+const slug=s=>(s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'work')+'-'+Date.now().toString(36);
+function shrink(file){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>{const w=Math.min(1400,im.width),c=document.createElement('canvas');c.width=w;c.height=Math.round(im.height*w/im.width);c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.84).split(',')[1])};im.onerror=()=>rej(new Error('Не удалось прочитать картинку'));im.src=URL.createObjectURL(file)})}
+async function upload(file,id){const path=`assets/works/${id}-${Date.now().toString(36)}.jpg`;await api(path,{method:'PUT',body:JSON.stringify({message:'Добавлено изображение работы',content:await shrink(file),branch:$('branch').value.trim()})});return path}
+$('f').onsubmit=async e=>{e.preventDefault();try{if(!F.works.sha)await loadFile('works');const file=$('img').files[0];const vals={type:$('type').value,category:$('cat').value.trim(),title:$('title').value.trim(),text:$('text').value.trim(),link:$('link').value.trim()};
+if(editId){const w=W().find(x=>x.id===editId);Object.assign(w,vals);if(file){say('Загружаю изображение…',1);w.image=await upload(file,w.id)}}
+else{say('Загружаю изображение…',1);const id=slug($('title').value.replace(/[^\x00-\x7F]/g,''));W().push({id,...vals,image:await upload(file,id)})}
+say('Обновляю список…',1);await saveFile('works',(editId?'Изменена работа: ':'Добавлена работа: ')+vals.title);drawW();resetForm();say(done,1)}catch(x){say(x.message)}};
+/* ---------- услуги ---------- */
+const S=()=>F.services.data;
+function drawS(){$('slist').innerHTML=S().map((s,i)=>`<div class="srv ${s.visible===false?'off':''}" data-i="${i}"><div class="top"><label class="sw"><input type="checkbox" data-f="visible" ${s.visible===false?'':'checked'}> Показывать на сайте</label><div class="btns" style="display:flex;gap:6px"><button class="s" data-a="up">↑</button><button class="s" data-a="down">↓</button><button class="s" data-a="del">Удалить</button></div></div>
+<div class="row"><label>Название<input data-f="title" value="${esc(s.title)}"></label><label>Цена<input data-f="price" value="${esc(s.price)}"></label></div>
+<label>Короткая подпись<input data-f="sub" value="${esc(s.sub)}"></label><label>Описание (появляется при наведении)<textarea data-f="desc">${esc(s.desc)}</textarea></label></div>`).join('')||'<p class="hint">Услуг пока нет.</p>'}
+$('slist').addEventListener('input',e=>{const r=e.target.closest('.srv');if(!r)return;const s=S()[+r.dataset.i],f=e.target.dataset.f;if(!f)return;if(f==='visible'){s.visible=e.target.checked;r.classList.toggle('off',!s.visible)}else s[f]=e.target.value});
+$('slist').onclick=e=>{const b=e.target.closest('button');if(!b)return;const i=+b.closest('.srv').dataset.i,a=b.dataset.a,s=S();if(a==='del'){if(!confirm('Удалить услугу совсем? Если нужно просто спрятать, снимите галочку «Показывать».'))return;s.splice(i,1)}else{const j=a==='up'?i-1:i+1;if(j<0||j>=s.length)return;[s[i],s[j]]=[s[j],s[i]]}drawS()};
+$('sadd').onclick=()=>{S().push({id:'s-'+Date.now().toString(36),title:'Новая услуга',sub:'Короткая подпись',desc:'Описание услуги.',price:'от 0 ₽',visible:true});drawS()};
+$('ssave').onclick=async()=>{try{await saveFile('services','Обновлены услуги и цены');say(done,1)}catch(x){say(x.message)}};
+</script></body></html>
